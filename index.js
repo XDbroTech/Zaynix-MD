@@ -21,7 +21,7 @@ const { File } = require('megajs')
 const prefix = config.PREFIX 
 const path = require('path');
 const asciiArt = ``;
-const ownerNumber = ['919341378016']
+const ownerNumber = ['263715831216']
 
 
 //===================SESSION-AUTH============================
