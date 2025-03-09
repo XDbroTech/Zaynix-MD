@@ -15,7 +15,7 @@ module.exports = {
   // public = AnyOne Working
   // inbox = Only Working  Inbox
   // groups = only working in group
-  OWNER_NUMBER: process.env.OWNER_NUMBER || "919341378016",
+  OWNER_NUMBER: process.env.OWNER_NUMBER || "263715831216",
   //========================================- OTHER - CONFIGS -=====================================================================
   AUTO_VOICE: process.env.AUTO_VOICE || "true",
   ANTI_BAD_WORDS_ENABLED: process.env.ANTI_BAD_WORDS_ENABLED || "true",
