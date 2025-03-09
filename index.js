@@ -329,8 +329,6 @@ conn.ev.on('messages.delete', async (message) => {
             console.error('Error handling deleted message:', error)
         }
     }
-})
-}
 
 app.get("/", (req, res) => res.sendFile(require('path').join(__dirname, "./index.html")));
 app.listen(port, () => console.log(`✅ Zaynix-MD - Server Running...`));
