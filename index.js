@@ -81,7 +81,6 @@ console.log('ZAYNIX-MD')
                 conn.sendPresenceUpdate('available')
             }
         }
-    })
 
     conn.ev.on('creds.update', saveCreds)
 
