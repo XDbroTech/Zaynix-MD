@@ -41,42 +41,40 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-    console.log(asciiArt);
-    console.log("✅ Zaynix-MD - Session Download Completed...");
-    const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/Session/')
-    var { version } = await fetchLatestBaileysVersion()
+console.log("Connecting WhtasApp Bot...");
+const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
+var { version } = await fetchLatestBaileysVersion()
 
-    const conn = makeWASocket({
+const conn = makeWASocket({
         logger: P({ level: 'silent' }),
         printQRInTerminal: false,
-        browser: Browsers.macOS("Safari"),
+        browser: Browsers.macOS("Firefox"),
         syncFullHistory: true,
         auth: state,
         version
-    })
+        })
+    
+conn.ev.on('connection.update', (update) => {
+const { connection, lastDisconnect } = update
+if (connection === 'close') {
+if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
+connectToWA()
+}
+} else if (connection === 'open') {
+console.log('ZAYNIX-MD Bot Connected To WhatsApp Succesfully. 🎉')
+const path = require('path');
+fs.readdirSync("./Plugin/").forEach((plugin) => {
+if (path.extname(plugin).toLowerCase() == ".js") {
+require("./Plugin/" + plugin);
+}
+});
+console.log('Plugins installed successful 🧬✅')
+console.log('ZAYNIX-MD')
 
-    conn.ev.on('connection.update', (update) => {
-        const { connection, lastDisconnect } = update
-        if (connection === 'close') {
-            if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
-                connectToWA()
-            }
-        } else if (connection === 'open') {
-            console.log('✅ Zaynix-MD - Plugin Installing...')
-            console.log('✅ Zaynix-MD - Plugin Install Completed...')
-            console.log('✅ Zaynix-MD - Zaynix-MD Sucessfull Conected Your Device...')
-            const path = require('path');
-            fs.readdirSync("./Plugin/").forEach((plugin) => {
-                if (path.extname(plugin).toLowerCase() == ".js") {
-                    require("./Plugin/" + plugin);
-                }
-            });
-
-
-            let up = config.START_MSG;
-                        
-            conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://files.catbox.moe/a3pk91.png` }, caption: up })
-
+  let up = `*Hello there ZAYNIX-MD User! \ud83d\udc4b\ud83c\udffb* \n\n> Simple , Straight Forward But Loaded With Features \ud83c\udf8a, Meet ZAYNIX-MD WhatsApp Bot.\n\n *Thanks for using ZAYNIX-MD 🐼* \n\n> Join WhatsApp Channel :- ⤵️\n \nhttps://whatsapp.com/channel/0029VakaPzeD38CV78dbGf0e\n\n- *YOUR PREFIX:* = ${prefix}\n\nDont forget to give star to repo ⬇️\n\nhttps://github.com/ROMEKTRICKS/Zaynix-MD\n\n> © Powered BY ROMEK-XD \ud83d\udda4`;
+  conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/38yzwy.jpg` }, caption: up })
+  }
+})
     //--------------------| Zaynix-MD Settings Input |--------------------//
 
             if (config.ALWAYS_ONLINE === "true") {
