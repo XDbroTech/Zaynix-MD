@@ -25,21 +25,21 @@ async function loadData() {
         }
 
         // Load blacklist from remote URL if local file doesn't exist
-        const blacklistResponse = await axios.get("https://raw.githubusercontent.com/ZaynixXD/Zaynix-DATA/main/blacklist.json").catch(err => {
+        const blacklistResponse = await axios.get("https://raw.githubusercontent.com/XDbroTech/Zaynix-MD-DB/main/blacklist.json").catch(err => {
             console.error("Error loading blacklist from remote URL:", err);
             return { data: { jids: [] } };
         });
         blacklistedJIDs = blacklistResponse.data.jids || blacklistedJIDs;
 
         // Load premium JIDs
-        const premiumResponse = await axios.get("https://raw.githubusercontent.com/ZaynixXD/Zaynix-DATA/main/premium.json").catch(err => {
+        const premiumResponse = await axios.get("https://raw.githubusercontent.com/XDbroTech/Zaynix-MD-DB/main/premium.json").catch(err => {
             console.error("Error loading premium list:", err);
             return { data: { jids: [] } };
         });
         premiumJIDs = premiumResponse.data.jids || [];
 
         // Load developer JIDs
-        const developerResponse = await axios.get("https://raw.githubusercontent.com/ZaynixXD/Zaynix-DATA/main/developers.json").catch(err => {
+        const developerResponse = await axios.get("https://raw.githubusercontent.com/XDbroTech/Zaynix-MD-DB/main/developers.json").catch(err => {
             console.error("Error loading developers list:", err);
             return { data: { jids: [] } };
         });
