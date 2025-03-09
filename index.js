@@ -26,7 +26,7 @@ const ownerNumber = ['919341378016']
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
 if(!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
-const sessdata = config.SESSION_ID.replace("ANJU-XPRO~", "")
+const sessdata = config.SESSION_ID.replace("X-JANU=", "")
 const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
@@ -39,7 +39,6 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 //=============================================
-
 async function connectToWA() {
     console.log(asciiArt);
     console.log("✅ Zaynix-MD - Session Download Completed...");
@@ -55,17 +54,16 @@ async function connectToWA() {
         version
     })
 
-conn.ev.on('connection.update', (update) => {
-const { connection, lastDisconnect } = update
-if (connection === 'close') {
-if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
-connectToWA()
-}
-} else if (connection === 'open') {
-console.log('ZAYNIX-MD Bot Connected To WhatsApp Succesfully. 🎉')
-            
-console.log('Plugins installed successful 🧬✅')
-console.log('ZAYNIX-MD')
+    conn.ev.on('connection.update', (update) => {
+        const { connection, lastDisconnect } = update
+        if (connection === 'close') {
+            if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
+                connectToWA()
+            }
+        } else if (connection === 'open') {
+            console.log('✅ Zaynix-MD - Plugin Installing...')
+            console.log('✅ Zaynix-MD - Plugin Install Completed...')
+            console.log('✅ Zaynix-MD - Zaynix-MD Sucessfull Conected Your Device...')
             const path = require('path');
             fs.readdirSync("./Plugin/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -73,11 +71,11 @@ console.log('ZAYNIX-MD')
                 }
             });
 
-let up = `*Hello there ZAYNIX-MD User! \ud83d\udc4b\ud83c\udffb* \n\n> Simple , Straight Forward But Loaded With Features \ud83c\udf8a, Meet ZAYNIX-MD WhatsApp Bot.\n\n *Thanks for using ZAYNIX-MD 🐼* \n\n> Join WhatsApp Channel :- ⤵️\n \nhttps://whatsapp.com/channel/0029VakaPzeD38CV78dbGf0e\n\n- *YOUR PREFIX:* = ${prefix}\n\nDont forget to give star to repo ⬇️\n\nhttps://github.com/ROMEKTRICKS/Zaynix-MD\n\n> © Powered BY ROMEK-XD \ud83d\udda4`;
+
+            let up = `*Hello there ZAYNIX-MD User! \ud83d\udc4b\ud83c\udffb* \n\n> Simple , Straight Forward But Loaded With Features \ud83c\udf8a, Meet ZAYNIX-MD WhatsApp Bot.\n\n *Thanks for using ZAYNIX-MD 🐼* \n\n> Join WhatsApp Channel :- ⤵️\n \nhttps://whatsapp.com/channel/0029VakaPzeD38CV78dbGf0e\n\n- *YOUR PREFIX:* = ${prefix}\n\nDont forget to give star to repo ⬇️\n\nhttps://github.com/ROMEKTRICKS/Zaynix-MD\n\n> © Powered BY ROMEK-XD \ud83d\udda4`;
   conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/38yzwy.jpg` }, caption: up })
   }
 })
-
     //--------------------| Zaynix-MD Settings Input |--------------------//
 
             if (config.ALWAYS_ONLINE === "true") {
