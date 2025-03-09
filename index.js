@@ -63,15 +63,15 @@ connectToWA()
 }
 } else if (connection === 'open') {
 console.log('ZAYNIX-MD Bot Connected To WhatsApp Succesfully. 🎉')
+            
+console.log('Plugins installed successful 🧬✅')
+console.log('ZAYNIX-MD')
             const path = require('path');
             fs.readdirSync("./Plugin/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() == ".js") {
                     require("./Plugin/" + plugin);
                 }
             });
-console.log('Plugins installed successful 🧬✅')
-console.log('ZAYNIX-MD')
-
 
 let up = `*Hello there ZAYNIX-MD User! \ud83d\udc4b\ud83c\udffb* \n\n> Simple , Straight Forward But Loaded With Features \ud83c\udf8a, Meet ZAYNIX-MD WhatsApp Bot.\n\n *Thanks for using ZAYNIX-MD 🐼* \n\n> Join WhatsApp Channel :- ⤵️\n \nhttps://whatsapp.com/channel/0029VakaPzeD38CV78dbGf0e\n\n- *YOUR PREFIX:* = ${prefix}\n\nDont forget to give star to repo ⬇️\n\nhttps://github.com/ROMEKTRICKS/Zaynix-MD\n\n> © Powered BY ROMEK-XD \ud83d\udda4`;
   conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/38yzwy.jpg` }, caption: up })
