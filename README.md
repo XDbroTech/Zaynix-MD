@@ -1,2 +1,2 @@
-# SAHAS-MD
-ད Ｔｈｅ Ｆｕｔｕｒｅ Ｔｅｃｈｎｏｌｏｇｙ Ｉｓ Ｔｏｄａｙ ⚡
+# Zaynix-MD
+WORLD BEST WHATSAPP BOT
