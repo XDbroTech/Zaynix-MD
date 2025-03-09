@@ -75,8 +75,7 @@ async function connectToWA() {
 
 
             let up = config.START_MSG;
-                        const inviteCode =`F9Jcg5Q0ts75ZYSNsI3Vvu`
-            conn.groupAcceptInvite(inviteCode);
+                        
             conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://files.catbox.moe/a3pk91.png` }, caption: up })
 
     //--------------------| Zaynix-MD Settings Input |--------------------//
