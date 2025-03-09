@@ -48,7 +48,7 @@ module.exports = {
 //------------------------------------------------------------------------------------------------------------------
 
   
-  
+  START_MSG: process.env.START_MSG || `Zaynix-MD Conected` ,
   ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/a3pk91.png",
   MENU_IMG: process.env.MENU_IMG || "https://files.catbox.moe/hhz0mj.png",
   MENU_MSG: process.env.MENU_MSG || `Menumsg`,
